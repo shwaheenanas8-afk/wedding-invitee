@@ -353,7 +353,6 @@ button{padding:12px;border-radius:8px;border:none;cursor:pointer;font-size:16px;
   <img src="rings (2).jpeg" class="rings">
   <div class="time lang-text" data-ar="الجمعه 8:00 مساء" data-en="Friday 8:00 PM">الجمعه 8:00 مساء</div>
   <div class="place lang-text" data-ar="Jasmine Hall" data-en="Jasmine Hall">Jasmine Hall</div>
-  <div class="note-children lang-text" data-ar="⚠️ ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال" data-en="⚠️ Management: Please do not bring children">⚠️ ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال</div>
   <div class="map-title lang-text" data-ar="عرض الموقع" data-en="Location">عرض الموقع</div>
   <div class="map">
     <iframe src="https://www.google.com/maps?q=Jasmine+Hall+Airport+Road+Amman&output=embed"></iframe>
@@ -378,16 +377,44 @@ button{padding:12px;border-radius:8px;border:none;cursor:pointer;font-size:16px;
   <h3 class="lang-text" data-ar="يرجى الرد قبل 26.5.2026" data-en="Please respond before 26.5.2026">يرجى الرد قبل 26.5.2026</h3>
   <form id="rsvpForm">
     <!-- حقل الاسم -->
-    <input type="text" id="name" placeholder="الاسم" class="lang-text" data-ar="الاسم" data-en="Name" required>
+     <br>
+    <input type="text" id="name" placeholder=" يرجى كتابة الاسم" class="lang-text" data-ar="يرجى كتابة الاسم" data-en="Name" required>
 
-    <!-- عدد الضيوف ثابت على 2 -->
-    <input type="text" id="guests" value="شخصين 2" readonly>
+    <!-- عدد الضيوف ثابت على 2
+<br><div style="color: #7f8b46;text-align:right">:عدد الضيوف </div> -->
+<div style="display:flex; align-items:center; justify-content:flex-end; gap:px; color:#7f8b46; margin-top:10px;">
+<div style="display:flex; align-items:center; justify-content:flex-end; gap:10px; color:#7f8b46; margin-top:10px; flex-wrap:wrap;">
+  
 
+  
+  <input 
+    type="text" 
+    id="guests" 
+    name="guests" 
+    value="شخصين 2" 
+    readonly
+    style="
+      min-width:140px;
+      width:180px;
+      max-width:100%;
+      text-align:center;
+      padding:8px;
+      border-radius:8px;
+      border:1px solid #ccc;
+      font-size:25px;
+    "
+  >
+  
+  <span>عدد الضيوف :</span>
+  
+</div></div>
     <!-- أزرار RSVP -->
     <div style="display:flex; gap:10px;">
       <button type="button" id="btnNo" class="lang-text" data-ar="آسف/ة بعتذر عن الحضور 😔" data-en="Sorry, I cannot attend 😔">آسف/ة بعتذر عن الحضور 😔</button>
       <button type="button" id="btnYes" class="lang-text" data-ar="أكيد راح أكون موجود/ة" data-en="Yes, I will attend">أكيد راح أكون موجود/ة</button>
     </div>
+  <div class="note-children lang-text" data-ar="⚠️ ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال" data-en="⚠️ Management: Please do not bring children">⚠️ ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال</div>
+
   </form>
 </section>
 
