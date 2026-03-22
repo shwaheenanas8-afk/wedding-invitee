@@ -7,7 +7,24 @@
 <title>دعوة زفاف</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
-body{background-color: #f3f0af;}
+body{background-color: #ebf5bd;}
+
+/* LANG SELECT */
+.lang-select {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 1000;
+  font-weight: bold;
+}
+.lang-select button{
+  cursor:pointer;
+  background:none;
+  border:none;
+  font-size:16px;
+  margin:0 3px;
+  color:#7c1414;
+}
 
 /* HERO */
 .hero {
@@ -22,7 +39,7 @@ body{background-color: #f3f0af;}
 /* overlay */
 .overlay{
   position: absolute;
-  bottom: 80px; /* حركنا الكل لينزل تحت الكلمة الخضراء */
+  bottom: 80px; 
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -37,9 +54,7 @@ body{background-color: #f3f0af;}
   opacity:0;
   animation:fadeInNames 1s forwards 0.5s;
 }
-@keyframes fadeInNames{
-  to{opacity:1;}
-}
+@keyframes fadeInNames{to{opacity:1;}}
 
 /* التاريخ والكلمة الجانبية */
 .info-row{
@@ -54,9 +69,7 @@ body{background-color: #f3f0af;}
 }
 .info-row .date{font-size:22px;color:#7c1414;}
 .info-row .subtitle{font-size:18px;color:#721717;}
-@keyframes fadeInInfo{
-  to{opacity:1;}
-}
+@keyframes fadeInInfo{to{opacity:1;}}
 
 /* كلمة "مرر للأسفل" والماوس */
 .scroll-down{
@@ -84,10 +97,7 @@ body{background-color: #f3f0af;}
   border-radius:2px;
   animation:scrollWheel 0.4s infinite;
 }
-@keyframes scrollWheel{
-  0%{opacity:1; top:6px;}
-  100%{opacity:0; top:20px;}
-}
+@keyframes scrollWheel{0%{opacity:1; top:6px;}100%{opacity:0; top:20px;}}
 
 /* النصوص على الصورة */
 .text-on-hero{
@@ -103,9 +113,7 @@ body{background-color: #f3f0af;}
   color:#8f0404;
   margin-bottom:10px;
 }
-@keyframes fadeInText{
-  to{opacity:1;}
-}
+@keyframes fadeInText{to{opacity:1;}}
 
 /* CARD */
 .card{
@@ -120,7 +128,7 @@ body{background-color: #f3f0af;}
   height: 100px;
   margin: 0 auto 20px;
   position: relative;
-  filter: sepia(1) saturate(8) hue-rotate(10deg) brightness(0.9) contrast(1.2);
+  filter: sepia(100) saturate(25) hue-rotate(10deg) brightness(1.2) contrast(1);
 }
 .rings::after {
   content: "";
@@ -201,8 +209,8 @@ body{background-color: #f3f0af;}
   max-width:300px;
   margin:auto;
 }
-input,select{padding:10px;border:none;border-radius:8px;}
-button{padding:10px;border-radius:8px;border:none;cursor:pointer;}
+input{padding:12px;border:none;border-radius:8px;text-align:center;font-size:18px;}
+button{padding:12px;border-radius:8px;border:none;cursor:pointer;font-size:16px;}
 #btnNo{background:#8d0202;color:#faf7f7;}
 #btnYes{background:#7f8b46;color:#fff;}
 
@@ -210,7 +218,16 @@ button{padding:10px;border-radius:8px;border:none;cursor:pointer;}
 .footer{text-align:center;padding:30px 20px;}
 .footer-text{font-family:'Amiri', serif;font-size:18px;color:#5a5a5a;margin-bottom:15px;}
 .footer-names{font-family:'Playfair Display', serif;font-size:22px;color:#4a4a4a;letter-spacing:1px;}
+/* أضف هذا في قسم الـ style */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
+#audioControls button:hover {
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
 /* RESPONSIVE */
 @media (max-width:600px){
   .names{font-size:28px;}
@@ -226,27 +243,27 @@ button{padding:10px;border-radius:8px;border:none;cursor:pointer;}
 </head>
 <body>
 
+<!-- LANGUAGE SELECT -->
+<div class="lang-select">
+  <button onclick="setLanguage('ar')">AR</button> | 
+  <button onclick="setLanguage('en')">EN</button>
+</div>
+
 <!-- HERO -->
 <div class="hero">
   <div class="overlay">
-    <h1 class="names">فارس 🕊️ العنود</h1>
+    <h1 class="names lang-text" data-ar="فارس 🕊️ العنود" data-en="Fares 🕊️ Alnoud">فارس 🕊️ العنود</h1>
     <div class="info-row">
-      <div class="date">May 29, 2026</div>
-      <div class="subtitle">انضموا الينا في يوم زفافنا</div>
+      <div class="date lang-text" data-ar="29 مايو, 2026" data-en="May 29, 2026">29 مايو, 2026</div>
+      <div class="subtitle lang-text" data-ar="انضموا الينا في يوم زفافنا" data-en="Join us on our wedding day">انضموا الينا في يوم زفافنا</div>
     </div>
     <div class="text-on-hero">
-      <b>دعوة زفاف</b>
-      <b>ندعوكم لمشاركتنا اجمل لحظات العمر</b>
+      <b class="lang-text" data-ar="دعوة زفاف" data-en="Wedding Invitation">دعوة زفاف</b>
+      <b class="lang-text" data-ar="ندعوكم لمشاركتنا اجمل لحظات العمر" data-en="Join us to share the happiest moments">ندعوكم لمشاركتنا اجمل لحظات العمر</b>
     </div>
     <div class="scroll-down" onclick="scrollDown()">
       <div class="mouse"><div class="wheel"></div></div>
-      <span>مرر للأسفل</span>
-    </div>
-  </div>
-</div>
- <div class="text-on-hero">
-      <b>دعوة زفاف</b>
-      <b>ندعوكم لمشاركتنا اجمل لحظات العمر</b>
+      <span class="lang-text" data-ar="مرر للأسفل" data-en="Scroll Down">مرر للأسفل</span>
     </div>
   </div>
 </div>
@@ -254,10 +271,10 @@ button{padding:10px;border-radius:8px;border:none;cursor:pointer;}
 <!-- CARD -->
 <div class="card">
   <img src="rings (2).jpeg" class="rings">
-  <div class="time">الجمعه 8:00 مساء</div>
-  <div class="place">Jasmine Hall</div>
-  <div class="note-children">⚠️ ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال</div>
-  <div class="map-title">عرض الموقع</div>
+  <div class="time lang-text" data-ar="الجمعه 8:00 مساء" data-en="Friday 8:00 PM">الجمعه 8:00 مساء</div>
+  <div class="place lang-text" data-ar="Jasmine Hall" data-en="Jasmine Hall">Jasmine Hall</div>
+  <div class="note-children lang-text" data-ar="⚠️ ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال" data-en="⚠️ Management: Please do not bring children">⚠️ ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال</div>
+  <div class="map-title lang-text" data-ar="عرض الموقع" data-en="Location">عرض الموقع</div>
   <div class="map">
     <iframe src="https://www.google.com/maps?q=Jasmine+Hall+Airport+Road+Amman&output=embed"></iframe>
     <a href="https://www.google.com/maps/dir/?api=1&destination=Jasmine+Hall+Airport+Road+Amman" target="_blank"></a>
@@ -266,38 +283,89 @@ button{padding:10px;border-radius:8px;border:none;cursor:pointer;}
 
 <!-- COUNTDOWN -->
 <section class="countdown-section">
-  <div class="count-title">العد التنازلي لفرحة العمر</div>
+  <div class="count-title lang-text" data-ar="العد التنازلي لفرحة العمر" data-en="Countdown to Our Wedding">العد التنازلي لفرحة العمر</div>
   <div class="countdown">
-    <div><span id="days">0</span>أيام</div>
-    <div><span id="hours">0</span>ساعات</div>
-    <div><span id="minutes">0</span>دقائق</div>
-    <div><span id="seconds">0</span>ثواني</div>
+    <div><span id="days">0</span><span class="lang-text" data-ar="أيام" data-en="Days">أيام</span></div>
+    <div><span id="hours">0</span><span class="lang-text" data-ar="ساعات" data-en="Hours">ساعات</span></div>
+    <div><span id="minutes">0</span><span class="lang-text" data-ar="دقائق" data-en="Minutes">دقائق</span></div>
+    <div><span id="seconds">0</span><span class="lang-text" data-ar="ثواني" data-en="Seconds">ثواني</span></div>
   </div>
 </section>
 
 <!-- RSVP -->
 <section class="rsvp">
-  <h2>تأكيد الحضور</h2>
-  <h3>يرجى الرد قبل 26.5.2026</h3>
+  <h2 class="lang-text" data-ar="تأكيد الحضور" data-en="RSVP">تأكيد الحضور</h2>
+  <h3 class="lang-text" data-ar="يرجى الرد قبل 26.5.2026" data-en="Please respond before 26.5.2026">يرجى الرد قبل 26.5.2026</h3>
   <form id="rsvpForm">
-    <input type="text" id="name" placeholder="الاسم" required>
-    <select id="guests" required>
-      <option>2</option>
-    </select>
+    <!-- حقل الاسم -->
+    <input type="text" id="name" placeholder="الاسم" class="lang-text" data-ar="الاسم" data-en="Name" required>
+
+    <!-- عدد الضيوف ثابت على 2 -->
+    <input type="text" id="guests" value="2" readonly>
+
+    <!-- أزرار RSVP -->
     <div style="display:flex; gap:10px;">
-      <button type="button" id="btnNo">آسف/ة بعتذر عن الحضور😔</button>
-      <button type="button" id="btnYes">أكيد راح اكون موجود/ة</button>
+      <button type="button" id="btnNo" class="lang-text" data-ar="آسف/ة بعتذر عن الحضور 😔" data-en="Sorry, I cannot attend 😔">آسف/ة بعتذر عن الحضور 😔</button>
+      <button type="button" id="btnYes" class="lang-text" data-ar="أكيد راح أكون موجود/ة" data-en="Yes, I will attend">أكيد راح أكون موجود/ة</button>
     </div>
   </form>
 </section>
 
 <!-- FOOTER -->
 <div class="footer">
-  <div class="footer-text">فرحتنا بتكمل معكم</div>
+  <div class="footer-text lang-text" data-ar="فرحتنا بتكمل معكم" data-en="Our happiness is complete with you">فرحتنا بتكمل معكم</div>
   <div class="footer-names">2026 © فارس العنود</div>
 </div>
-
+<!-- استبدل audio tag الحالي بهذا -->
+<div id="audioControls" style="position:fixed; top:20px; left:20px; z-index:1001; background:rgba(0,0,0,0.7); padding:10px; border-radius:10px; display:none;">
+  <button id="playBtn" style="background:#7f8b46; color:white; border:none; padding:8px 12px; border-radius:5px; cursor:pointer; font-size:14px;">🔊 تشغيل الموسيقى</button>
+  <button id="muteBtn" style="background:#8d0202; color:white; border:none; padding:8px 12px; border-radius:5px; cursor:pointer; font-size:14px; display:none;">🔇 إيقاف</button>
+</div>
+<!-- احذف الـ audio القديم وضع هذا بداله -->
+<audio id="bgMusic" loop preload="auto" style="display:none;">
+  <source src="aACwqo8W_pU (1).mp3" type="audio/mpeg">
+</audio>
 <script>
+  // ضع هذا في نهاية الـ script الموجود
+// تشغيل تلقائي للموسيقى عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+  const bgMusic = document.getElementById('bgMusic');
+  
+  // ضبط الصوت (30%)
+  bgMusic.volume = 0.3;
+  
+  // تشغيل تلقائي مع حلول لكل المتصفحات
+  function playMusic() {
+    bgMusic.play().then(() => {
+      console.log('🎵 الموسيقى تشغلت تلقائياً');
+    }).catch(err => {
+      console.log('جاري المحاولة مرة أخرى...', err);
+      // إعادة المحاولة بعد 500ms
+      setTimeout(playMusic, 500);
+    });
+  }
+  
+  // تشغيل فوري
+  playMusic();
+  
+  // تشغيل عند أول تفاعل مع الصفحة (حل مضمون)
+  ['click', 'scroll', 'keydown', 'touchstart'].forEach(event => {
+    document.addEventListener(event, function handler() {
+      playMusic();
+      // إزالة المستمع بعد التشغيل
+      ['click', 'scroll', 'keydown', 'touchstart'].forEach(e => {
+        document.removeEventListener(e, handler);
+      });
+    }, { once: true });
+  });
+  
+  // إعادة تشغيل لو توقفت
+  bgMusic.addEventListener('pause', () => {
+    setTimeout(() => {
+      if (bgMusic.paused) playMusic();
+    }, 1000);
+  });
+});
 // SCROLL DOWN
 function scrollDown(){ window.scrollBy({top:window.innerHeight,behavior:'smooth'}); }
 
@@ -308,13 +376,12 @@ const nameInput = document.getElementById("name");
 const guestsSelect = document.getElementById("guests");
 
 btnYes.addEventListener("click", ()=>{
-  if(!nameInput.value){ alert("يرجى إدخال اسمك!"); return; }
-  if(!guestsSelect.value){ alert("يرجى اختيار عدد الأشخاص!"); return; }
-  alert(`✅ تم تأكيد حضورك ❤️\nالاسم: ${nameInput.value}\nعدد الأشخاص: ${guestsSelect.value}`);
+  if(!nameInput.value){ alert(nameInput.getAttribute('data-ar') + " مطلوب!"); return; }
+  alert(`✅ تم تأكيد حضورك ❤️\n${nameInput.value}\nعدد الأشخاص: ${guestsSelect.value}`);
 });
 btnNo.addEventListener("click", ()=>{
-  if(!nameInput.value){ alert("يرجى إدخال اسمك!"); return; }
-  alert(`❌ تم تسجيل الاعتذار 😔\nالاسم: ${nameInput.value}`);
+  if(!nameInput.value){ alert(nameInput.getAttribute('data-ar') + " مطلوب!"); return; }
+  alert(`❌ تم تسجيل الاعتذار 😔\n${nameInput.value}`);
 });
 
 // COUNTDOWN
@@ -333,6 +400,14 @@ function updateCountdown(){
 }
 setInterval(updateCountdown,1000);
 updateCountdown();
+
+// LANGUAGE SWITCH
+function setLanguage(lang){
+  const texts = document.querySelectorAll('.lang-text');
+  texts.forEach(el=>{
+    el.innerText = el.getAttribute(`data-${lang}`);
+  });
+}
 </script>
 
 </body>
