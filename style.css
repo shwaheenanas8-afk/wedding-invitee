@@ -295,8 +295,7 @@ body {
   }
   
   /* نص الضغط - مثالي */
-  .click-text {
-text-align: center;
+  .click-text {left: 300px;
     top: 240px;
     font-size: 13px;
     padding: 0px 0px;
