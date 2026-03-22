@@ -229,15 +229,77 @@ button{padding:12px;border-radius:8px;border:none;cursor:pointer;font-size:16px;
   transition: all 0.2s ease;
 }
 /* RESPONSIVE */
-@media (max-width:600px){
-  .names{font-size:28px;}
-  .date{font-size:18px;}
-  .subtitle{font-size:16px;}
-  .text-on-hero b{font-size:18px;}
-  .time{font-size:18px;}
-  .place{font-size:14px;}
-  .scroll-down{margin-top:10px;}
-  .info-row{flex-direction:column; gap:5px;}
+/* RSVP - نفس الابتوب على الموبايل */
+@media (max-width: 768px) {
+  .rsvp {
+    background-color: #FFFDD0 !important;
+    padding: 40px 25px !important; /* نفس padding الابتوب */
+    margin: 0 20px !important; /* هوامش مثل الابتوب */
+    border-radius: 20px !important;
+  }
+  
+  .rsvp h2 {
+    font-family: 'Amiri', serif !important;
+    font-size: 28px !important; /* نفس حجم الابتوب تقريباً */
+    color: #7f8b46 !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .rsvp h3 {
+    color: #7f8b46 !important;
+    font-size: 16px !important;
+  }
+  
+  .rsvp form {
+    max-width: 100% !important; /* ملء الشاشة */
+    gap: 15px !important;
+  }
+  
+  /* الاسم - نفس الابتوب */
+  #name {
+    padding: 15px !important;
+    font-size: 20px !important;
+    border-radius: 10px !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+  
+  /* عدد 2 - نفس الابتوب */
+  #guests {
+    padding: 15px !important;
+    font-size: 20px !important;
+    border-radius: 10px !important;
+    text-align: center !important;
+    background: #f0f8d8 !important;
+    color: #7f8b46 !important;
+  }
+  
+  /* الأزرار - نفس الابتوب بالضبط */
+  #btnNo, #btnYes {
+    padding: 16px 20px !important;
+    font-size: 18px !important;
+    border-radius: 10px !important;
+    flex: 1 !important;
+    height: auto !important;
+    white-space: normal !important; /* النص يتكسر طبيعي */
+    line-height: 1.3 !important;
+  }
+  
+  /* عرض الأزرار جنب بعض */
+  #btnNo, #btnYes {
+    min-height: 55px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  /* تأكد من عرض الأزرار جنب بعض على الموبايل */
+@media (max-width: 768px) {
+  .rsvp form > div:last-child {
+    display: flex !important;
+    gap: 15px !important;
+    flex-direction: row !important; /* جنب بعض مش تحت بعض */
+  }
+}
 }
 </style>
 </head>
@@ -407,6 +469,70 @@ function setLanguage(lang){
   texts.forEach(el=>{
     el.innerText = el.getAttribute(`data-${lang}`);
   });
+  // نظام الصوت المتقدم للموبايل
+document.addEventListener('DOMContentLoaded', function() {
+  const bgMusic = document.getElementById('bgMusic');
+  const musicIndicator = document.getElementById('musicIndicator');
+  
+  // كشف الموبايل
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  if (!isMobile) return; // الصوت للموبايل فقط
+  
+  // إعدادات الصوت
+  bgMusic.volume = 0.25; // صوت هادئ
+  bgMusic.muted = false;
+  
+  // دالة التشغيل المتقدمة
+  function playMusicSafely() {
+    const playPromise = bgMusic.play();
+    
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        musicIndicator.style.display = 'block';
+        console.log('✅ الصوت يعمل على الموبايل');
+      }).catch(error => {
+        console.log('🔄 جاري المحاولة...', error);
+        // إعادة المحاولة
+        setTimeout(playMusicSafely, 800);
+      });
+    }
+  }
+  
+  // تشغيل تلقائي فوري
+  playMusicSafely();
+  
+  // تشغيل مضمون عند أول لمس
+  let touchHandled = false;
+  ['touchstart', 'click', 'scroll'].forEach(event => {
+    document.addEventListener(event, function handler(e) {
+      if (!touchHandled) {
+        playMusicSafely();
+        touchHandled = true;
+      }
+      // إزالة المستمعين بعد التشغيل
+      ['touchstart', 'click', 'scroll'].forEach(ev => {
+        document.removeEventListener(ev, handler);
+      });
+    }, { once: true, passive: true });
+  });
+  
+  // إعادة تشغيل لو توقف
+  bgMusic.addEventListener('pause', () => {
+    if (document.visibilityState === 'visible') {
+      setTimeout(playMusicSafely, 1500);
+    }
+  });
+  
+  // إيقاف عند مغادرة الصفحة
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      bgMusic.pause();
+    } else {
+      playMusicSafely();
+    }
+  });
+});
 }
 </script>
 
