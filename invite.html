@@ -4,152 +4,58 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Lateef&display=swap" rel="stylesheet">
-<link href="fcaf8dba-a637-45e8-9f98-5fafe746b1b7" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
 <title>دعوة زفاف</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
-.container {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
-  overflow: hidden;
-}
+body{background-color: #f3f0af;}
 
-/* الصورة */
-.container img {
-  width: 100%;
-  height: 400px; /* تتحكم بالطول */
-  object-fit: cover;
-  object-position: top; /* تثبيت من فوق */
-}
-
-/* النص */
-.text {
-  position: absolute;
-  top: 30px; /* مكان النص */
-  left: 50%;
-  transform: translateX(-50%) skewX(-12deg); /* ميل احترافي */
-  
-  font-family: 'Amiri', serif;
-  font-size: 38px;
-  color: #1f6b3a;
-  direction: rtl;
-  text-align: center;
-
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-}
-/* ===== HERO ===== */
+/* HERO */
 .hero {
   width: 100%;
-  height: 160vh;
-  object-position: top;
-  background: url('HEAD.png') center center no-repeat;
-  background-size: contain;
-  padding-bottom: 100px; /* 👈 المسافة من فوق */
-
+  height: 100vh;
+  background: url('c2d891c8-60fc-49ed-b551-bdb9afa12127.png ') center top no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   overflow: hidden;
-
-  animation: zoomBackground 50s forwards;
 }
-.text-on-hero {
-  position: absolute;
-  bottom: 50px; /* المسافة من أسفل الصورة */
-  left: 50%;
-  transform: translateX(-50%);
+.overlay{
+  position: relative;
+  z-index: 2;
   text-align: center;
 }
-
-.text-on-hero h2 {
-  font-family: 'Amiri', serif;
-  font-size: 48px;
-  margin: 0;
-  color: #8f0404;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-  position: relative;
-  bottom: -350px; /* ينزل الحرف أكثر للأسفل */
-}
-.text-on-hero b {
-  font-family: 'Lateef', cursive;
-  font-size: 24px;
-      color: #8f0404;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-  position: relative;
-  bottom: -400px; /* ينزل الحرف أكثر للأسفل */
-}
-@keyframes zoomBackground{
-  0%{background-size:100%;}
-  100%{background-size:100%;}
-}
-
-.overlay{
-  
-  position:relative;
-  z-index:2;
-  text-align:center;
-}
-
-/* التاريخ فوق الاسماء */
-.overlay .date{
-  
-  font-size:28px;
-  color:#7c1414;
-  margin-bottom:10px;
-  opacity:0;
-  transform: translateY(-30px);
-  animation:fadeInDate 1s forwards 1s;
-}
-@keyframes fadeInDate{
-  to{opacity:1; transform: translateY(0);}
-}
-body{
-  background-color: #f3f0af;
-}
 .names{
-  font-family:'amiri';
+  font-family:'Amiri', serif;
   font-size:50px;
   color:#8f0404;
   margin-bottom:10px;
-  opacity:0;
-  transform: translateY(20px);
-  animation:fadeInNames 1s forwards 0.5s;
 }
-@keyframes fadeInNames{
-  to{opacity:1; transform: translateY(0);}
-}
-
-.overlay .subtitle{
-font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size:24px;
-  left: 20px;
+.info-row{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top:10px;
+  padding:0 20px;
+  gap:20px;
+  flex-wrap: wrap;
+}
+.date{
+  font-size:22px;
+  color:#7c1414;
+}
+.subtitle{
+  font-size:18px;
   color:#721717;
-  opacity:0;
-  transform: translateY(20px);
-  animation:fadeInSubtitle 1s forwards 1.2s;
 }
-@keyframes fadeInSubtitle{
-  to{opacity:1; transform: translateY(0);}
-}
-
-/* ===== SCROLL ICON ===== */
 .scroll-down{
-  position:absolute;
-  bottom:-10px;
-  left:50%;
-  transform:translateX(-50%);
+  margin-top:20px;
   color:#7e1b1b;
-  text-align:center;
   cursor:pointer;
+  text-align:center;
 }
-
 .mouse{
-  top: 100px;
   width:25px;
   height:40px;
   border:2px solid #722525;
@@ -157,7 +63,6 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin:auto;
   position:relative;
 }
-
 .wheel{
   width:4px;
   height:8px;
@@ -173,132 +78,36 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   0%{opacity:1; top:6px;}
   100%{opacity:0; top:20px;}
 }
-
-/* ===== النص ===== */.invite{
-  padding:40px 20px;
-}
-.invite small{
-  font-size:14px;
-  color:#64574a;
-}
-.invite hr{
-  width:100px;
-  margin:15px auto;
-  border:0;
-  height:1px;
-  background:#9f968c;
-}
-.invite p{
-  font-size:20px;
-  line-height:1.8;
+.text-on-hero{
+  position: relative;
+  text-align:center;
   margin-top:20px;
 }
-
-/* ===== عنوان ===== */
-.title{
-  
-  text-align:center;
-  margin:60px 0 30px;
-}
-.title h2{font-size:32px;font-family:Arial, Helvetica, sans-serif;
- }
-.title hr{
-  width:100px;
-  margin:10px auto;
-  border:0;
-  height:1px;
-  background:#867765;
+.text-on-hero b{
+  display:block;
+  font-family:'Lateef', cursive;
+  font-size:24px;
+  color:#8f0404;
+  margin-bottom:10px;
 }
 
-/* ===== كارد ===== */
+/* CARD */
 .card{
-
   margin:20px;
-  padding:40px 20px;
+  padding:20px;
   border-radius:20px;
   text-align:center;
-}
-.card {
-  text-align: center;
-}
-
-.rings {
-  width: 80px;
-  margin: 30px auto 20px;
-  display: block;
-}
-/* دبل */
-.rings{
-  
-  width:120px;
-  height:100px;
-  margin:0 auto 20px;
-  position:relative;
-}
-.rings::before, .rings::after{
-  content:"";
-  position:absolute;
-  border:2px solid #c9a96e;
-  border-radius:50%;
-}
-.rings::before{width:60px;height:60px;}
-.rings::after{width:40px;height:40px;top:10px;left:20px;}
-
-/* نص */
-.time{font-size:24px;margin-bottom:10px; color: #7f8b46;}
-.place{font-size:16px;color: #7f8b46;;}
-
-/* الخريطة */
-.map-title{margin-top:30px;color:#6f665d;}
-.map{margin-top:15px;border-radius:20px;overflow:hidden;}
-.map iframe{width:100%;height:250px;border:0;}
-
-/* ===== العد التنازلي ===== */
-
-.countdown-section{
-
-  text-align:center;
-  margin:50px 20px;
-}
-.countdown-section .count-title{
-  color:#88060d;
-
-  font-weight:bold;
-  font-size:28px;
-  
-}
-.countdown-section .count-subtitle{
-  font-weight:300;
-  font-size:18px;
-  margin-bottom:20px;
-}
-.countdown{
-  
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  font-size:20px;
-  color:#88060d;
-background-color: #ffff;
-}
-.countdown div{
- 
-  padding:15px;
-  border-radius:15px;
-  min-width:80px;
-}
-.countdown div span{
-  font-family:'Times New Roman', Times, serif;
-  display:block;
-  font-size:32px;
-  font-weight:bold;
+  background:transparent;
 }
 .rings {
-  filter: sepia(1) saturate(7) hue-rotate(8deg) brightness(0.9) contrast(1.2);
+  width: 120px;        /* حجم الدبل */
+  height: 100px;
+  margin: 0 auto 20px;
   position: relative;
+  filter: sepia(1) saturate(8) hue-rotate(10deg) brightness(0.9) contrast(1.2); /* يعطي لون ذهبي للصورة */
 }
 
-/* لمعة خفيفة */
+/* إذا حاب تضيف لمعة ذهبية لطيفة على الدبل */
 .rings::after {
   content: "";
   position: absolute;
@@ -309,139 +118,105 @@ background-color: #ffff;
   background: linear-gradient(120deg, rgba(255,255,255,0.6), rgba(255,255,255,0));
   border-radius: 50%;
   pointer-events: none;
+  mix-blend-mode: screen;
 }
-/* ===== RSVP ===== */
+.time{font-size:20px;margin-bottom:5px;color:#7f8b46;}
+.place{font-size:16px;color:#7f8b46;}
+.note-children{
+  color:#8f0404; 
+  font-weight:bold; 
+  text-align:center; 
+  margin-top:10px; 
+  font-size:14px;
+}
+
+/* MAP */
+.map-title{margin-top:30px;color:#6f665d;}
+.map{margin-top:15px;border-radius:20px;overflow:hidden;position:relative;}
+.map iframe{width:100%;height:200px;border:0;border-radius:20px;}
+.map a{position:absolute;top:0;left:0;width:100%;height:100%;z-index:5;}
+
+/* COUNTDOWN */
+.countdown-section{
+  text-align:center;
+  margin:50px 20px;
+}
+.countdown-section .count-title{
+  color:#88060d;
+  font-weight:bold;
+  font-size:28px;
+}
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  font-size:16px;
+  color:#88060d;
+  flex-wrap:wrap;
+}
+.countdown div{
+  padding:10px;
+  border-radius:10px;
+  min-width:60px;
+  background:#fff;
+}
+.countdown div span{
+  font-family:'Times New Roman', Times, serif;
+  display:block;
+  font-size:24px;
+  font-weight:bold;
+}
+
+/* RSVP */
 .rsvp{
-  background-color: #FFFDD0;
-  padding:60px 20px;
+  background-color:#FFFDD0;
+  padding:40px 20px;
   text-align:center;
 }
-.rsvp/* العنوان "تأكيد الحضور" */
-h2 {
-  font-family: 'Amiri', serif;
-  font-size: 44px;
-  color: #7f8b46;
-  text-align: center;
-  margin-bottom: 15px;
-  font-weight: 400;
+.rsvp h2{
+  font-family:'Amiri', serif;
+  font-size:32px;
+  color:#7f8b46;
+  margin-bottom:15px;
 }
-.rsvp/* العنوان "تأكيد الحضور" */
-h3 {
-  color: #7f8b46;
-
-}
-/* السطر: يرجى الرد قبل + التاريخ */
-h1 {
-  font-family: 'Cairo', sans-serif;
-  font-size: 16px;
-  color: #6f6f6f;
-  text-align: center;
-  font-weight: 400;
-  margin: 0;
-}
-
-/* جزء التاريخ داخل h1 */
-h1 span {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  margin-right: 6px;
+.rsvp h3{
+  color:#7f8b46;
 }
 .rsvp form{
   display:flex;
   flex-direction:column;
-  gap:15px;
+  gap:10px;
   max-width:300px;
   margin:auto;
 }
 input,select{
   padding:10px;
   border:none;
-  border-radius:10px;
+  border-radius:8px;
 }
-button.submit{
-  background:#c9a96e;
-  color:#fff;
-  border:none;
-  border-radius:10px;
+button{
   padding:10px;
-}.footer {
-  text-align: center;
-  padding: 40px 20px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
 }
+#btnNo{background:#8d0202;color:#faf7f7;}
+#btnYes{background:#7f8b46;color:#fff;}
 
-.footer-text {
-  font-family: 'Amiri', serif;
-  font-size: 20px;
-  color: #5a5a5a;
-  margin-bottom: 25px;
-}
+/* FOOTER */
+.footer{text-align:center;padding:30px 20px;}
+.footer-text{font-family:'Amiri', serif;font-size:18px;color:#5a5a5a;margin-bottom:15px;}
+.footer-names{font-family:'Playfair Display', serif;font-size:22px;color:#4a4a4a;letter-spacing:1px;}
 
-.footer-names {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  color: #4a4a4a;
-  letter-spacing: 1px;
-}
-#guests {
-  color: #520303;
-  border: 1px solid 520303;
-  background-color: #fff;
-}
-
-#guests:focus {
-  outline: none;
-  border-color: 520303;
-}
-.info-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-  padding: 0 70px; /* كبرنا المسافة من الأطراف */
-  gap: 200px; /* هاي اللي بتكبر المسافة بينهم */
-}
-
-.date {
-  text-align: right;
-}
-
-.subtitle {
-  text-align: left;
-}
-@media (max-width: 600px){
-
-  .names{
-    font-size:32px;
-  }
-  .text-on-hero b{
-    font-size:18px;
-    bottom:-240px;
-  }
-
-  .info-row{
-    flex-direction:column;
-    gap:10px;
-    padding:0 20px;
-  }
-
-  .countdown{
-    flex-wrap:wrap;
-    gap:10px;
-  }
-
-  .countdown div{
-    min-width:60px;
-    padding:10px;
-  }
-
-  .map iframe{
-    height:200px;
-  }
-
-  .hero{
-    height:100vh;
-    background-size:cover;
-  }
+/* RESPONSIVE */
+@media (max-width:600px){
+  .names{font-size:28px;}
+  .date{font-size:18px;}
+  .subtitle{font-size:16px;}
+  .text-on-hero b{font-size:18px;}
+  .time{font-size:18px;}
+  .place{font-size:14px;}
+  .scroll-down{margin-top:10px;}
 }
 </style>
 </head>
@@ -451,62 +226,42 @@ button.submit{
 <div class="hero">
   <div class="overlay">
     <h1 class="names">فارس 🕊️ العنود</h1>
-
     <div class="info-row">
       <div class="date">May 29, 2026</div>
       <div class="subtitle">انضموا الينا في يوم زفافنا</div>
-
       <div class="scroll-down" onclick="scrollDown()">
         <div class="mouse"><div class="wheel"></div></div>
         <span>مرر للأسفل</span>
       </div>
     </div>
-
-    <!-- النصوص الجديدة فوق الصورة -->
     <div class="text-on-hero">
-      <b>دعوة زفاف</b><br><br><br>
+      <b>دعوة زفاف</b>
       <b>ندعوكم لمشاركتنا اجمل لحظات العمر</b>
     </div>
   </div>
 </div>
+
+<!-- CARD -->
 <div class="card">
-  <!-- الدبل -->
-  <img src="rings.jpeg.12 PM" class="rings">
-
+  <img src="rings (2).jpeg" class="rings">
   <div class="time">الجمعه 8:00 مساء</div>
-  <div class="place">Jasmine Hall </div>
-
-  <!-- التحذير عن الأطفال -->
-  <div class="note-children" style="color:#8f0404; font-weight:bold; text-align:center; margin-top:10px; font-size:16px;">
-    ⚠️ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال
+  <div class="place">Jasmine Hall</div>
+  <div class="note-children">⚠️ ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال</div>
+  <div class="map-title">عرض الموقع</div>
+  <div class="map">
+    <iframe src="https://www.google.com/maps?q=Jasmine+Hall+Airport+Road+Amman&output=embed"></iframe>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=Jasmine+Hall+Airport+Road+Amman" target="_blank"></a>
   </div>
+</div>
 
- <div class="map-title">عرض الموقع</div>
-<div class="map" style="position:relative;">
-  
-  <!-- الخريطة -->
-  <iframe 
-    src="https://www.google.com/maps?q=Jasmine+Hall+Airport+Road+Amman&output=embed"
-    loading="lazy"
-    style="width:100%; height:250px; border:0; border-radius:20px;">
-  </iframe>
-
-  <!-- طبقة الضغط -->
-  <a href="https://www.google.com/maps/dir/?api=1&destination=Jasmine+Hall+Airport+Road+Amman"
-     target="_blank"
-     style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:5;">
-  </a>
-
-</div></div>
-</div><!-- العد التنازلي -->
+<!-- COUNTDOWN -->
 <section class="countdown-section">
-  <div class="count-title">العد التنازلي لفرحة العمر </div>
-<br>  <div class="countdown">
+  <div class="count-title">العد التنازلي لفرحة العمر</div>
+  <div class="countdown">
     <div><span id="days">0</span>أيام</div>
     <div><span id="hours">0</span>ساعات</div>
     <div><span id="minutes">0</span>دقائق</div>
     <div><span id="seconds">0</span>ثواني</div>
-    <div><span id="">باقي</span></div>
   </div>
 </section>
 
@@ -514,94 +269,53 @@ button.submit{
 <section class="rsvp">
   <h2>تأكيد الحضور</h2>
   <h3>يرجى الرد قبل 26.5.2026</h3>
-<br>  <h2><div class="container">
-  
-  <div class="text">ف ع</div>
-</div>
-</h2>
-  <br><br><br>
- <!-- مكان الرسالة الفريدة -->
-<div id="rsvpMessage" style="text-align:center; max-width:400px; margin:auto;">
-  <!-- الحقول (ظاهرين دائمًا) -->
-  <input type="text" id="name" placeholder="الاسم" required style="margin-bottom:10px; width:100%; padding:10px; border-radius:8px; border:1px solid #ccc;">
-  <select id="guests" required style="margin-bottom:20px; width:100%; padding:10px; border-radius:8px; border:1px solid #ccc;">
-    <option>2</option>
-  </select>
-
-  <!-- خيارات الحضور على نفس السطر -->
-  <div style="display:flex; justify-content:space-between; gap:10px;">
-    <button type="button" id="btnNo" style="flex:1; background:#8d0202; color:#faf7f7; border:none; padding:10px; border-radius:10px;">آسف/ة بعتذر عن الحضور😔</button>
-    <button type="button" id="btnYes" style="flex:1; background:#7f8b46; color:#fff; border:none; padding:10px; border-radius:10px;">أكيد راح اكون موجود/ة </button>
-  </div>
-</form>
+  <form id="rsvpForm">
+    <input type="text" id="name" placeholder="الاسم" required>
+    <select id="guests" required>
+      <option>2</option>
+    </select>
+    <div style="display:flex; gap:10px;">
+      <button type="button" id="btnNo">آسف/ة بعتذر عن الحضور😔</button>
+      <button type="button" id="btnYes">أكيد راح اكون موجود/ة</button>
+    </div>
+  </form>
 </section>
+
+<!-- FOOTER -->
 <div class="footer">
-  <div class="footer-text">فرحتنا بتكمل معكم </div>
+  <div class="footer-text">فرحتنا بتكمل معكم</div>
   <div class="footer-names">2026 © فارس العنود</div>
 </div>
-<script>
-function scrollDown(){
-  window.scrollBy({top:window.innerHeight,behavior:'smooth'});
-}
 
-// ===== RSVP الذكي =====
-const form = document.getElementById("rsvpForm");
+<script>
+// SCROLL DOWN
+function scrollDown(){ window.scrollBy({top:window.innerHeight,behavior:'smooth'}); }
+
+// RSVP
 const btnYes = document.getElementById("btnYes");
 const btnNo = document.getElementById("btnNo");
 const nameInput = document.getElementById("name");
 const guestsSelect = document.getElementById("guests");
 
-let attendanceChoice = null;
-
-// عند الضغط على "أكيد سأكون حاضر/ة"
 btnYes.addEventListener("click", ()=>{
-  attendanceChoice = "yes";
-  
-  // اجبار الاسم وعدد الأشخاص
-  if(!nameInput.value){
-    nameInput.setCustomValidity("يرجى إدخال اسمك!");
-  } else {
-    nameInput.setCustomValidity("");
-  }
-
-  if(!guestsSelect.value){
-    guestsSelect.setCustomValidity("يرجى اختيار عدد الأشخاص!");
-  } else {
-    guestsSelect.setCustomValidity("");
-  }
-
-  // عرض رسالة داخل الحقل نفسه
-  nameInput.reportValidity();
-  guestsSelect.reportValidity();
-
-  if(nameInput.checkValidity() && guestsSelect.checkValidity()){
-    // لو كل شيء صحيح
-    alert(`✅ تم تأكيد حضورك ❤️\nالاسم: ${nameInput.value}\nعدد الأشخاص: ${guestsSelect.value}`);
-  }
+  if(!nameInput.value){ alert("يرجى إدخال اسمك!"); return; }
+  if(!guestsSelect.value){ alert("يرجى اختيار عدد الأشخاص!"); return; }
+  alert(`✅ تم تأكيد حضورك ❤️\nالاسم: ${nameInput.value}\nعدد الأشخاص: ${guestsSelect.value}`);
+});
+btnNo.addEventListener("click", ()=>{
+  if(!nameInput.value){ alert("يرجى إدخال اسمك!"); return; }
+  alert(`❌ تم تسجيل الاعتذار 😔\nالاسم: ${nameInput.value}`);
 });
 
-// عند الضغط على "آسف/ة"
-btnNo.addEventListener("click", ()=>{
-  attendanceChoice = "no";
-
-  if(!nameInput.value){
-    nameInput.setCustomValidity("يرجى إدخال اسمك!");
-    nameInput.reportValidity();
-  } else {
-    nameInput.setCustomValidity("");
-    alert(`❌ تم تسجيل الاعتذار 😔\nالاسم: ${nameInput.value}`);
-  }
-});// ===== العد التنازلي =====
+// COUNTDOWN
 const weddingDate = new Date("May 29, 2026 20:00:00").getTime();
 function updateCountdown(){
   const now = new Date().getTime();
   const diff = weddingDate - now;
-
-  const days = Math.floor(diff / (1000*60*60*24));
+  const days = Math.floor(diff/(1000*60*60*24));
   const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
   const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
   const seconds = Math.floor((diff%(1000*60))/1000);
-
   document.getElementById("days").innerText = days;
   document.getElementById("hours").innerText = hours;
   document.getElementById("minutes").innerText = minutes;
