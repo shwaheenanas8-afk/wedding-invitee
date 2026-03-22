@@ -244,5 +244,96 @@ button{padding:10px;border-radius:8px;border:none;cursor:pointer;}
     </div>
   </div>
 </div>
+ <div class="text-on-hero">
+      <b>دعوة زفاف</b>
+      <b>ندعوكم لمشاركتنا اجمل لحظات العمر</b>
+    </div>
+  </div>
+</div>
 
-<!-- باقي الصفحة مثل السابق (Card، Countdown، RSVP، Footer) -->
+<!-- CARD -->
+<div class="card">
+  <img src="rings (2).jpeg" class="rings">
+  <div class="time">الجمعه 8:00 مساء</div>
+  <div class="place">Jasmine Hall</div>
+  <div class="note-children">⚠️ ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال</div>
+  <div class="map-title">عرض الموقع</div>
+  <div class="map">
+    <iframe src="https://www.google.com/maps?q=Jasmine+Hall+Airport+Road+Amman&output=embed"></iframe>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=Jasmine+Hall+Airport+Road+Amman" target="_blank"></a>
+  </div>
+</div>
+
+<!-- COUNTDOWN -->
+<section class="countdown-section">
+  <div class="count-title">العد التنازلي لفرحة العمر</div>
+  <div class="countdown">
+    <div><span id="days">0</span>أيام</div>
+    <div><span id="hours">0</span>ساعات</div>
+    <div><span id="minutes">0</span>دقائق</div>
+    <div><span id="seconds">0</span>ثواني</div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section class="rsvp">
+  <h2>تأكيد الحضور</h2>
+  <h3>يرجى الرد قبل 26.5.2026</h3>
+  <form id="rsvpForm">
+    <input type="text" id="name" placeholder="الاسم" required>
+    <select id="guests" required>
+      <option>2</option>
+    </select>
+    <div style="display:flex; gap:10px;">
+      <button type="button" id="btnNo">آسف/ة بعتذر عن الحضور😔</button>
+      <button type="button" id="btnYes">أكيد راح اكون موجود/ة</button>
+    </div>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-text">فرحتنا بتكمل معكم</div>
+  <div class="footer-names">2026 © فارس العنود</div>
+</div>
+
+<script>
+// SCROLL DOWN
+function scrollDown(){ window.scrollBy({top:window.innerHeight,behavior:'smooth'}); }
+
+// RSVP
+const btnYes = document.getElementById("btnYes");
+const btnNo = document.getElementById("btnNo");
+const nameInput = document.getElementById("name");
+const guestsSelect = document.getElementById("guests");
+
+btnYes.addEventListener("click", ()=>{
+  if(!nameInput.value){ alert("يرجى إدخال اسمك!"); return; }
+  if(!guestsSelect.value){ alert("يرجى اختيار عدد الأشخاص!"); return; }
+  alert(`✅ تم تأكيد حضورك ❤️\nالاسم: ${nameInput.value}\nعدد الأشخاص: ${guestsSelect.value}`);
+});
+btnNo.addEventListener("click", ()=>{
+  if(!nameInput.value){ alert("يرجى إدخال اسمك!"); return; }
+  alert(`❌ تم تسجيل الاعتذار 😔\nالاسم: ${nameInput.value}`);
+});
+
+// COUNTDOWN
+const weddingDate = new Date("May 29, 2026 20:00:00").getTime();
+function updateCountdown(){
+  const now = new Date().getTime();
+  const diff = weddingDate - now;
+  const days = Math.floor(diff/(1000*60*60*24));
+  const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+  const seconds = Math.floor((diff%(1000*60))/1000);
+  document.getElementById("days").innerText = days;
+  document.getElementById("hours").innerText = hours;
+  document.getElementById("minutes").innerText = minutes;
+  document.getElementById("seconds").innerText = seconds;
+}
+setInterval(updateCountdown,1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
