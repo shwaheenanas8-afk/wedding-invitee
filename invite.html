@@ -58,16 +58,30 @@ body{background-color: #f0edc8}
 @keyframes fadeInNames{to{opacity:1;}}
 
 /* التاريخ والكلمة الجانبية */
-.info-row{
+.info-row .date{
+ 
   display:flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 80%;
   margin: 10px auto 20px auto;
+  gap:2px;
+  opacity:0;
+  animation:fadeInInfo 1s forwards 0.7s;
+}.info-row .subtitle{
+
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  width: 80%;
+  margin: 10px auto 20px auto;
+  
   gap:20px;
   opacity:0;
   animation:fadeInInfo 1s forwards 0.7s;
+  
 }
+
 .info-row .date{font-size:22px;color:#7c1414;}
 .info-row .subtitle{font-size:18px;color:#721717;}
 @keyframes fadeInInfo{to{opacity:1;}}
@@ -112,7 +126,7 @@ body{background-color: #f0edc8}
 .text-on-hero b{
   display:block;
   font-family:'Lateef', cursive;
-  font-size:38px;
+  font-size:24px;
   color:#8f0404;
   margin-bottom:50px;
 }
@@ -333,8 +347,8 @@ button{padding:12px;border-radius:8px;border:none;cursor:pointer;font-size:16px;
 <!-- CARD -->
 <div class="card">
 <div class="info-row">
-      <div class="date lang-text" data-ar="29 مايو, 2026" data-en="May 29, 2026">29 مايو, 2026</div>
       <div class="subtitle lang-text" data-ar="انضموا الينا في يوم زفافنا" data-en="Join us on our wedding day">انضموا الينا في يوم زفافنا</div>
+      <div class="date lang-text" data-ar="29 مايو, 2026" data-en="May 29, 2026">29 .05 .2026</div>
     </div>
   <img src="rings (2).jpeg" class="rings">
   <div class="time lang-text" data-ar="الجمعه 8:00 مساء" data-en="Friday 8:00 PM">الجمعه 8:00 مساء</div>
@@ -367,7 +381,7 @@ button{padding:12px;border-radius:8px;border:none;cursor:pointer;font-size:16px;
     <input type="text" id="name" placeholder="الاسم" class="lang-text" data-ar="الاسم" data-en="Name" required>
 
     <!-- عدد الضيوف ثابت على 2 -->
-    <input type="text" id="guests" value="2" readonly>
+    <input type="text" id="guests" value="شخصين 2" readonly>
 
     <!-- أزرار RSVP -->
     <div style="display:flex; gap:10px;">
