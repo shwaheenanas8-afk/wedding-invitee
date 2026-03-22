@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Lateef&display=swap" rel="stylesheet">
+
 <title>دعوة زفاف</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
@@ -387,6 +388,7 @@ button{padding:12px;border-radius:8px;border:none;cursor:pointer;font-size:16px;
 <audio id="bgMusic" loop preload="auto" style="display:none;">
   <source src="aACwqo8W_pU (1).mp3" type="audio/mpeg">
 </audio>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
   // ضع هذا في نهاية الـ script الموجود
 // تشغيل تلقائي للموسيقى عند تحميل الصفحة
@@ -430,22 +432,61 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 // SCROLL DOWN
 function scrollDown(){ window.scrollBy({top:window.innerHeight,behavior:'smooth'}); }
+// EmailJS init
+(function(){
+  emailjs.init("eXCYgQ6n7DPSCSzDU"); // حط المفتاح
+})();
 
 // RSVP
 const btnYes = document.getElementById("btnYes");
 const btnNo = document.getElementById("btnNo");
 const nameInput = document.getElementById("name");
 const guestsSelect = document.getElementById("guests");
-
 btnYes.addEventListener("click", ()=>{
-  if(!nameInput.value){ alert(nameInput.getAttribute('data-ar') + " مطلوب!"); return; }
-  alert(`✅ تم تأكيد حضورك ❤️\n${nameInput.value}\nعدد الأشخاص: ${guestsSelect.value}`);
-});
-btnNo.addEventListener("click", ()=>{
-  if(!nameInput.value){ alert(nameInput.getAttribute('data-ar') + " مطلوب!"); return; }
-  alert(`❌ تم تسجيل الاعتذار 😔\n${nameInput.value}`);
+  if(!nameInput.value){ 
+    alert(nameInput.getAttribute('data-ar') + " مطلوب!"); 
+    return; 
+  }
+
+  const params = {
+    name: nameInput.value,
+    attendance: "حاضر",
+    guests: guestsSelect.value
+  };
+
+  emailjs.send("service_ddh3srl", "template_vxehk6h", params, "eXCYgQ6n7DPSCSzDU")
+  .then((res)=>{
+    console.log("SUCCESS:", res);
+    alert(`✅ تم تأكيد حضورك ❤️\n${nameInput.value}\nعدد الأشخاص: ${guestsSelect.value}`);
+  })
+  .catch((error)=>{
+    console.log("ERROR FULL:", error);
+    alert("❌ الخطأ: " + error.text);
+  });
 });
 
+btnNo.addEventListener("click", ()=>{
+  if(!nameInput.value){ 
+    alert(nameInput.getAttribute('data-ar') + " مطلوب!"); 
+    return; 
+  }
+
+  const params = {
+    name: nameInput.value,
+    attendance: "غير قادر على الحضور",
+    guests: guestsSelect.value
+  };
+
+  emailjs.send("service_ddh3srl", "template_vxehk6h", params, "eXCYgQ6n7DPSCSzDU")
+  .then((res)=>{
+    console.log("SUCCESS:", res);
+    alert(`❌ تم تسجيل الاعتذار 😔\n${nameInput.value}`);
+  })
+  .catch((error)=>{
+    console.log("ERROR FULL:", error);
+    alert("❌ الخطأ: " + error.text);
+  });
+});
 // COUNTDOWN
 const weddingDate = new Date("May 29, 2026 20:00:00").getTime();
 function updateCountdown(){
