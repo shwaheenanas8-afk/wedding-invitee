@@ -261,6 +261,37 @@ button{padding:12px;border-radius:8px;border:none;cursor:pointer;font-size:16px;
 transform: scale(1.05);
   transition: all 0.2s ease;
 }
+.contact-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.contact-text {
+  color: #88060d;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.contact-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.contact-box .right,
+.contact-box .left {
+  width: 48%;
+  font-size: 17px;
+  color: #363d14;
+}
+
+.contact-box .right {
+  text-align: right;
+}
+
+.contact-box .left {
+  text-align: left;
+}
 /* RESPONSIVE */
 /* RSVP - نفس الابتوب على الموبايل */
 @media (max-width: 768px) {
@@ -341,27 +372,6 @@ transform: scale(1.05);
     flex-direction: row !important; /* جنب بعض مش تحت بعض */
   }
 }
-}
-.contact-box {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: flex-start;
-  margin-top: 10px;
-  padding: 0 20px;
-}
-
-.contact-item {
-  width: 48%;
-  font-size: 17px;
-  color: #363d14;
-}
-
-.contact-item.right {
-  text-align: right;
-}
-
-.contact-item.left {
-  text-align: left;
 }
 </style>
 </head>
@@ -460,28 +470,33 @@ transform: scale(1.05);
       <button type="button" id="btnYes" class="lang-text" data-ar="أكيد راح أكون موجود/ة" data-en="Yes, I will attend">أكيد راح أكون موجود/ة</button>
     </div>
   <div class="note-children lang-text" data-ar="⚠️ ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال" data-en="⚠️ Management: Please do not bring children">⚠️ ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال</div>
-<div style="color: #88060d; text-align: center;">
-  <br>
-  <p style="margin: 0; font-size:18px;">
+
+</div>
+  </form>
+</form>
+
+<!-- حط هذا بعد الفورم مباشرة -->
+<div class="contact-section">
+
+  <p class="contact-text">
     للاعتذار عن الحضور أو للاستفسار يرجى التواصل على الرقم
   </p>
 
   <div class="contact-box">
     
-    <div class="contact-item right">
+    <div class="right">
       الحاج ابو رعد <br>
       0791300013
     </div>
 
-    <div class="contact-item left">
+    <div class="left">
       الحاج ابو فارس <br>
       0799194196
     </div>
 
   </div>
+
 </div>
-</div>
-  </form>
 </section>
 
 <!-- FOOTER -->
