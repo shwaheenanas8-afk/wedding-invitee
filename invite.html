@@ -342,6 +342,27 @@ transform: scale(1.05);
   }
 }
 }
+.contact-box {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start;
+  margin-top: 10px;
+  padding: 0 20px;
+}
+
+.contact-item {
+  width: 48%;
+  font-size: 17px;
+  color: #363d14;
+}
+
+.contact-item.right {
+  text-align: right;
+}
+
+.contact-item.left {
+  text-align: left;
+}
 </style>
 </head>
 <body>
@@ -440,25 +461,25 @@ transform: scale(1.05);
     </div>
   <div class="note-children lang-text" data-ar="⚠️ ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال" data-en="⚠️ Management: Please do not bring children">⚠️ ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال</div>
 <div style="color: #88060d; text-align: center;">
-<br>
-  <p style="margin: 0;font-size:18px;">
+  <br>
+  <p style="margin: 0; font-size:18px;">
     للاعتذار عن الحضور أو للاستفسار يرجى التواصل على الرقم
   </p>
 
-  <div style=" display: flex; justify-content: space-between; padding: 0 50px; margin-top: 5px;">
-
-    <div style="text-align: right;font-size:17px; color:#363d14">
+  <div class="contact-box">
+    
+    <div class="contact-item right">
       الحاج ابو رعد <br>
       0791300013
     </div>
 
-    <div style="text-align: left;font-size:17px; color:#363d14">
+    <div class="contact-item left">
       الحاج ابو فارس <br>
       0799194196
     </div>
 
   </div>
-
+</div>
 </div>
   </form>
 </section>
