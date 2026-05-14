@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Lateef&display=swap" rel="stylesheet">
 
 <title>دعوة زفاف</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background-color: #f0edc8}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
+body{
+  background-image: url('WhatsApp Image 2026-04-25 at 8.02.39 PM.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 /* LANG SELECT */
 .lang-select {
   position: absolute;
@@ -30,7 +34,6 @@ body{background-color: #f0edc8}
 
 /* HERO */
 .hero {
-font-family:'Amiri', serif;
   width: 100%;
   height: 100vh;
   background: url('c2d891c8-60fc-49ed-b551-bdb9afa12127.png') center top no-repeat;
@@ -41,9 +44,8 @@ font-family:'Amiri', serif;
 
 /* overlay */
 .overlay{
-  
   position: absolute;
-  bottom: 150px; 
+  bottom: 80px; 
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -52,18 +54,17 @@ font-family:'Amiri', serif;
 
 /* اسماء العروسين */
 .names{
-  
   font-size:40px;
   color:#8f0404;
-  margin-bottom:5px;
+  margin-bottom:10px;
   opacity:0;
   animation:fadeInNames 1s forwards 0.5s;
 }
-@keyframes fadeInNames{to{opacity:1;font-family:'Amiri', serif;}}
+@keyframes fadeInNames{to{opacity:1;}}
 
 /* التاريخ والكلمة الجانبية */
 .info-row .date{
- font-family:'Amiri', serif;
+ 
   display:flex;
   justify-content: center;
   align-items: center;
@@ -79,19 +80,19 @@ font-family:'Amiri', serif;
   align-items: center;
   width: 80%;
   margin: 10px auto 20px auto;
+  
   gap:20px;
   opacity:0;
   animation:fadeInInfo 1s forwards 0.7s;
   
 }
 
-.info-row .date{font-size:22px;color:#7c1414;font-family:'Amiri', serif;}
-.info-row .subtitle{font-size:18px;color:#721717;font-family:'Amiri', serif;}
+.info-row .date{font-size:22px;color:#7c1414;}
+.info-row .subtitle{font-size:18px;color:#721717;}
 @keyframes fadeInInfo{to{opacity:1;}}
 
 /* كلمة "مرر للأسفل" والماوس */
 .scroll-down{
-  font-family:'Amiri', serif;
   margin-top:20px;
   color:#7e1b1b;
   text-align:center;
@@ -106,22 +107,21 @@ font-family:'Amiri', serif;
   position:relative;
 }
 .wheel{
-  font-family:'Amiri', serif;
   width:4px;
   height:8px;
   background:#792929;
   position:absolute;
   top:6px;
+  
   left:50%;
   transform:translateX(-50%);
   border-radius:2px;
   animation:scrollWheel 0.4s infinite;
 }
-@keyframes scrollWheel{0%{opacity:1; top:6px;}100%{opacity:0; top:20px;font-family:'Amiri', serif;}}
+@keyframes scrollWheel{0%{opacity:1; top:6px;}100%{opacity:0; top:20px;}}
 
 /* النصوص على الصورة */
 .text-on-hero{
-  font-family:'Amiri', serif;
   text-align:center;
   size: 10px;
   margin-top:10px;
@@ -129,18 +129,16 @@ font-family:'Amiri', serif;
   animation:fadeInText 1s forwards 1s;
 }
 .text-on-hero b{
-
   display:block;
-  font-family:'Amiri', serif;
-  font-size:20px;
+  font-family:'Lateef', cursive;
+  font-size:24px;
   color:#8f0404;
-  margin-bottom:10px;
+  margin-bottom:50px;
 }
-@keyframes fadeInText{to{opacity:1;font-family:'Amiri', serif;}}
+@keyframes fadeInText{to{opacity:1;}}
 
 /* CARD */
 .card{
-  font-family:'Amiri', serif;
   margin:20px;
   padding:20px;
   border-radius:20px;
@@ -152,7 +150,7 @@ font-family:'Amiri', serif;
   height: 100px;
   margin: 0 auto 20px;
   position: relative;
-  filter: sepia(100) saturate(2.5) hue-rotate(19deg) brightness(1.2) contrast(1);
+  filter: sepia(100) saturate(27) hue-rotate(19deg) brightness(1.2) contrast(1);
 }
 .rings::after {
   content: "";
@@ -166,10 +164,9 @@ font-family:'Amiri', serif;
   pointer-events: none;
   mix-blend-mode: screen;
 }
-.time{font-size:20px;margin-bottom:5px;color:#7f8b46;font-family:'Amiri', serif;}
-.place{font-size:16px;color:#7f8b46;font-family:'Amiri', serif;}
+.time{font-size:20px;margin-bottom:5px;color:#7f8b46;}
+.place{font-size:16px;color:#7f8b46;}
 .note-children{
-  font-family:'Amiri', serif;
   color:#8f0404; 
   font-weight:bold; 
   text-align:center; 
@@ -178,41 +175,37 @@ font-family:'Amiri', serif;
 }
 
 /* MAP */
-.map-title{margin-top:30px;color:#ac5151;}
+.map-title{margin-top:30px;color:#6f665d;}
 .map{margin-top:15px;border-radius:20px;overflow:hidden;position:relative;}
 .map iframe{width:100%;height:200px;border:0;border-radius:20px;}
 .map a{position:absolute;top:0;left:0;width:100%;height:100%;z-index:5;}
 
 /* COUNTDOWN */
 .countdown-section{
-  font-family:'Amiri', serif;
   text-align:center;
   margin:50px 20px;
 }
 .countdown-section .count-title{
-  font-family:'Amiri', serif;
   color:#88060d;
   font-weight:bold;
   font-size:28px;
 }
 .countdown{
-  font-family:'Amiri', serif;
   display:flex;
   justify-content:center;
   gap:10px;
- margin-top:  10px;
   font-size:16px;
   color:#88060d;
   flex-wrap:wrap;
 }
 .countdown div{
-  font-family:'Amiri', serif;
   padding:10px;
   border-radius:10px;
   min-width:60px;
   background:#fff;
 }
-.countdown div span{font-family:'Amiri', serif;
+.countdown div span{
+  font-family:'Times New Roman', Times, serif;
   display:block;
   font-size:24px;
   font-weight:bold;
@@ -220,7 +213,6 @@ font-family:'Amiri', serif;
 
 /* RSVP */
 .rsvp{
-  font-family:'Amiri', serif;
   background-color:#FFFDD0;
   padding:40px 20px;
   text-align:center;
@@ -231,19 +223,18 @@ font-family:'Amiri', serif;
   color:#7f8b46;
   margin-bottom:15px;
 }
-.rsvp h3{color:#7f8b46;font-family:'Amiri', serif;}
+.rsvp h3{color:#7f8b46;}
 .rsvp form{
- font-family:'Amiri', serif;
   display:flex;
   flex-direction:column;
   gap:10px;
   max-width:300px;
   margin:auto;
 }
-input{padding:12px;border:none;border-radius:8px;text-align:center;font-size:18px;font-family:'Amiri', serif;}
-button{padding:12px;border-radius:8px;border:none;cursor:pointer;font-size:16px;font-family:'Amiri', serif;}
-#btnNo{background:#8d0202;color:#faf7f7;font-family:'Amiri', serif;}
-#btnYes{background:#7f8b46;color:#fff;font-family:'Amiri', serif;}
+input{padding:12px;border:none;border-radius:8px;text-align:center;font-size:18px;}
+button{padding:12px;border-radius:8px;border:none;cursor:pointer;font-size:16px;}
+#btnNo{background:#8d0202;color:#faf7f7;}
+#btnYes{background:#7f8b46;color:#fff;}
 
 /* FOOTER */
 .footer{text-align:center;padding:30px 20px;}
@@ -251,47 +242,13 @@ button{padding:12px;border-radius:8px;border:none;cursor:pointer;font-size:16px;
 .footer-names{font-family:'Playfair Display', serif;font-size:22px;color:#4a4a4a;letter-spacing:1px;}
 /* أضف هذا في قسم الـ style */
 @keyframes fadeIn {
-  
-  from { opacity: 0; transform: translateY(-10px);font-family:'Amiri', serif; }
-  to { opacity: 1; transform: translateY(0); font-family:'Amiri', serif;}
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 #audioControls button:hover {
-  
-transform: scale(1.05);
+  transform: scale(1.05);
   transition: all 0.2s ease;
-}
-.contact-section {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.contact-text {
-  color: #363d14;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.contact-box {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 60px;
-}
-
-.contact-box .right,
-.contact-box .left {
-  width: 48%;
-  font-size: 17px;
-  color: #363d14;
-}
-.contact-box .right {
-  text-align: right;
-  margin-right: 20px;
-}
-
-.contact-box .left {
-  text-align: left;
-  margin-left: 15px;
 }
 /* RESPONSIVE */
 /* RSVP - نفس الابتوب على الموبايل */
@@ -304,14 +261,13 @@ transform: scale(1.05);
   }
   
   .rsvp h2 {
-    font-family:'Amiri', serif !important;
+    font-family: 'Amiri', serif !important;
     font-size: 28px !important; /* نفس حجم الابتوب تقريباً */
     color: #7f8b46 !important;
     margin-bottom: 15px !important;
   }
   
   .rsvp h3 {
-    font-family:'Amiri', serif !important;
     color: #7f8b46 !important;
     font-size: 16px !important;
   }
@@ -323,7 +279,6 @@ transform: scale(1.05);
   
   /* الاسم - نفس الابتوب */
   #name {
-     font-family:'Amiri', serif !important;
     padding: 15px !important;
     font-size: 20px !important;
     border-radius: 10px !important;
@@ -333,7 +288,6 @@ transform: scale(1.05);
   
   /* عدد 2 - نفس الابتوب */
   #guests {
-     font-family:'Amiri', serif !important;
     padding: 15px !important;
     font-size: 20px !important;
     border-radius: 10px !important;
@@ -344,7 +298,6 @@ transform: scale(1.05);
   
   /* الأزرار - نفس الابتوب بالضبط */
   #btnNo, #btnYes {
-     font-family:'Amiri', serif !important;
     padding: 16px 20px !important;
     font-size: 18px !important;
     border-radius: 10px !important;
@@ -356,7 +309,6 @@ transform: scale(1.05);
   
   /* عرض الأزرار جنب بعض */
   #btnNo, #btnYes {
-     font-family:'Amiri', serif !important;
     min-height: 55px !important;
     display: flex !important;
     align-items: center !important;
@@ -364,10 +316,7 @@ transform: scale(1.05);
   }
   /* تأكد من عرض الأزرار جنب بعض على الموبايل */
 @media (max-width: 768px) {
-  
   .rsvp form > div:last-child {
-     font-family:'Amiri', serif !important;
- 
     display: flex !important;
     gap: 15px !important;
     flex-direction: row !important; /* جنب بعض مش تحت بعض */
@@ -387,12 +336,11 @@ transform: scale(1.05);
 <!-- HERO -->
 <div class="hero">
   <div class="overlay">
+    <h1 class="names lang-text" data-ar="فارس 🕊️ العنود" data-en="Fares 🕊️ Alnoud">فارس 🕊️ العنود</h1>
     
     <div class="text-on-hero">
-      <b class="lang-text" data-ar="يسعدنا تشاركونا في أجمل لحظات الحمر " data-en="Join us to share the happiest moments">يسعدنا أن تشاركونا أجمل لحظات العمر </b>
-      <b class="lang-text" data-ar="دعوة زفاف" data-en="Wedding Invitation">في حفل زفاف</b>
-      <h1 class="names lang-text" data-ar="فارس 🕊️ العنود" data-en="Fares 🕊️ Alnoud">فارس 🕊️ العنود</h1>
-
+      <b class="lang-text" data-ar="دعوة زفاف" data-en="Wedding Invitation">دعوة زفاف</b>
+      <b class="lang-text" data-ar="ندعوكم لمشاركتنا اجمل لحظات العمر" data-en="Join us to share the happiest moments">ندعوكم لمشاركتنا اجمل لحظات العمر</b>
     </div>
     <div class="scroll-down" onclick="scrollDown()">
       <div class="mouse"><div class="wheel"></div></div>
@@ -404,13 +352,13 @@ transform: scale(1.05);
 <!-- CARD -->
 <div class="card">
 <div class="info-row">
-      <div class="subtitle lang-text" data-ar="في هذا اليوم تبدأ اجمل فصول حكايتنا " data-en="Join us on our wedding day">في هذا اليوم تبدأ اجمل فصول حكايتنا  </div>
-      <div class="date lang-text" data-ar="29 .05 .2026" data-en="May 29, 2026">29 .05 .2026</div>
+      <div class="subtitle lang-text" data-ar="انضموا الينا في يوم زفافنا" data-en="Join us on our wedding day">انضموا الينا في يوم زفافنا</div>
+      <div class="date lang-text" data-ar="29 مايو, 2026" data-en="May 29, 2026">29 .05 .2026</div>
     </div>
   <img src="rings (2).jpeg" class="rings">
   <div class="time lang-text" data-ar="الجمعه 8:00 مساء" data-en="Friday 8:00 PM">الجمعه 8:00 مساء</div>
   <div class="place lang-text" data-ar="Jasmine Hall" data-en="Jasmine Hall">Jasmine Hall</div>
-  <div class="map-title lang-text" data-ar="عرض الموقع" data-en="Location">عرض موقع المزرعه <i class="fa-solid fa-location-dot"></i> </div>
+  <div class="map-title lang-text" data-ar="عرض الموقع" data-en="Location">عرض الموقع</div>
   <div class="map">
     <iframe src="https://www.google.com/maps?q=Jasmine+Hall+Airport+Road+Amman&output=embed"></iframe>
     <a href="https://www.google.com/maps/dir/?api=1&destination=Jasmine+Hall+Airport+Road+Amman" target="_blank"></a>
@@ -448,7 +396,7 @@ transform: scale(1.05);
     type="text" 
     id="guests" 
     name="guests" 
-    value="شخصين 2" 
+    value="4 اشخاص" 
     readonly
     style="
       min-width:140px;
@@ -472,32 +420,7 @@ transform: scale(1.05);
     </div>
   <div class="note-children lang-text" data-ar="⚠️ ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال" data-en="⚠️ Management: Please do not bring children">⚠️ ادارة المزرعه : منعاً للاحراج، يرجى عدم اصطحاب الاطفال</div>
 
-</div>
   </form>
-</form>
-
-<!-- حط هذا بعد الفورم مباشرة -->
-<div class="contact-section">
-
-  <p class="contact-text">
-    للاعتذار/ للاستفسار يرجى التواصل 
-  </p>
-
-  <div class="contact-box">
-    
-    <div class="right">
-      الحاج ابو رعد <br>
-      0791300013
-    </div>
-
-    <div class="left">
-      الحاج ابو فارس <br>
-      0799194196
-    </div>
-
-  </div>
-
-</div>
 </section>
 
 <!-- FOOTER -->
@@ -512,7 +435,7 @@ transform: scale(1.05);
 </div>
 <!-- احذف الـ audio القديم وضع هذا بداله -->
 <audio id="bgMusic" loop preload="auto" style="display:none;">
-  <source src="lIw61gZuvCs-[AudioTrimmer.com].mp3" type="audio/mpeg">
+  <source src="aACwqo8W_pU (1).mp3" type="audio/mpeg">
 </audio>
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
